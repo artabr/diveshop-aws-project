@@ -1,10 +1,11 @@
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
+// eslint-disable-next-line import/no-unresolved
 import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/vite-react-ts-ghactions-template/',
+  base: '/',
   plugins: [react(), tsconfigPaths()],
   build: {
     sourcemap: true
