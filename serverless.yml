@@ -1,0 +1,52 @@
+service: diveshop-aws-project
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+  profile: admin-epam
+
+plugins:
+  - serverless-finch
+  - serverless-s3-cleaner
+
+custom:
+  client:
+    bucketName: artabr-diveshop-aws-project
+    distributionFolder: dist
+  s3BucketName: ${self:custom.client.bucketName}
+
+  s3LocalPath: ${self:custom.client.distributionFolder}/
+  serverless-s3-cleaner:
+    buckets:
+      - ${self:custom.client.bucketName}
+
+resources:
+  Resources:
+    WebAppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.s3BucketName}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+
+    WebAppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: WebAppS3Bucket
+        PolicyDocument:
+          Statement:
+            - Sid: "PublicRead"
+              Effect: Allow
+              Action: s3:GetObject
+              Resource: arn:aws:s3:::${self:custom.s3BucketName}/*
+              Principal: "*"
+
+  Outputs:
+    WebAppS3BucketOutput:
+      Value: !Ref WebAppS3Bucket
