@@ -39,6 +39,7 @@ module.exports = {
     'import/extensions': 'warn',
     'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
-    'react/jsx-no-bind': 'warn'
+    'react/jsx-no-bind': 'warn',
+    'react/require-default-props': 'off'
   }
 };

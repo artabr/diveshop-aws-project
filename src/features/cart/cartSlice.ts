@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '../../data/types';
 
-type CartItem = Pick<Product, 'itemId' | 'itemPrice'> & {
+type CartItem = Pick<Product, 'id' | 'price'> & {
   itemQuantity: number;
 };
 

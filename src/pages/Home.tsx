@@ -19,12 +19,12 @@ function Home() {
             {data.map((item) => {
               return (
                 <ProductCard
-                  key={item.itemId}
-                  itemId={item.itemId}
-                  itemName={item.itemName}
-                  itemDescription={item.itemDescription}
-                  itemImage={item.itemImage}
-                  itemPrice={item.itemPrice}
+                  key={item.id}
+                  itemId={item.id}
+                  itemName={item.title}
+                  itemDescription={item.description}
+                  itemImage={item.image}
+                  itemPrice={item.price}
                 />
               );
             })}

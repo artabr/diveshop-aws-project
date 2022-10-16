@@ -1,10 +1,15 @@
 import { Card, Col, Row, Button, Divider } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useAppDispatch } from '../redux/hooks';
-import { Product } from '../data/types';
 import { addCartItem } from '../features/cart/cartSlice';
 
-export type ProductCardProps = Product;
+export type ProductCardProps = {
+  itemId: string;
+  itemName: string;
+  itemPrice: number;
+  itemDescription?: string;
+  itemImage?: string;
+};
 
 export function ProductCard({ itemId, itemName, itemPrice, itemDescription, itemImage }: ProductCardProps) {
   const dispatch = useAppDispatch();
@@ -12,8 +17,8 @@ export function ProductCard({ itemId, itemName, itemPrice, itemDescription, item
   function handleAddClick() {
     dispatch(
       addCartItem({
-        itemId: 0,
-        itemPrice: 400,
+        id: '',
+        price: 400,
         itemQuantity: 1
       })
     );
