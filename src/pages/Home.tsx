@@ -1,11 +1,13 @@
 import { Layout, Row, Divider, Typography } from 'antd';
 import { ProductCard } from '../components/ProductCard';
-import items from '../data/mockData';
+import { useGetProductsQuery } from '../features/products/productsApi';
 
 const { Content } = Layout;
 const { Paragraph } = Typography;
 
 function Home() {
+  const { data = [] } = useGetProductsQuery();
+
   return (
     <div>
       <Layout style={{ padding: '24px 0' }}>
@@ -14,15 +16,15 @@ function Home() {
           <Divider orientation="left">How to buy</Divider>
           <Paragraph>We will continue to provide our customers with everything they love about diving.</Paragraph>
           <Row justify="start" gutter={[40, 16]}>
-            {items.map((item) => {
+            {data.map((item) => {
               return (
                 <ProductCard
-                  key={item.itemId}
-                  itemId={item.itemId}
-                  itemName={item.itemName}
-                  itemDescription={item.itemDescription}
-                  itemImage={item.itemImage}
-                  itemPrice={item.itemPrice}
+                  key={item.id}
+                  itemId={item.id}
+                  itemName={item.title}
+                  itemDescription={item.description}
+                  itemImage={item.image}
+                  itemPrice={item.price}
                 />
               );
             })}
