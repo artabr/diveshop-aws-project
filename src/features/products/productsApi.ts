@@ -3,7 +3,7 @@ import { Product } from '../../data/types';
 
 export const productsApi = createApi({
   reducerPath: 'products',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://4vvnuq9pg2.execute-api.eu-central-1.amazonaws.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://tvk13qhroe.execute-api.eu-central-1.amazonaws.com/' }),
   tagTypes: [],
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], void>({
