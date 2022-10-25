@@ -3,7 +3,7 @@ import { Layout, Row, Col, Divider, Typography } from 'antd';
 const { Content } = Layout;
 const { Paragraph } = Typography;
 
-function About() {
+export function About() {
   return (
     <div>
       <Layout style={{ padding: '24px 0' }}>
@@ -43,5 +43,3 @@ function About() {
     </div>
   );
 }
-
-export default About;

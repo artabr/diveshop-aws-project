@@ -1,6 +1,6 @@
 import { Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import { ShoppingCartOutlined, HomeOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, HomeOutlined, UploadOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
 type MenuPropsElement<T> = T extends (infer U)[] ? U : null;
@@ -24,6 +24,12 @@ const items: MenuItem[] = [
     label: 'About',
     key: 'about',
     route: '/about'
+  },
+  {
+    label: 'Upload',
+    key: 'upload',
+    route: '/upload',
+    icon: <UploadOutlined />
   }
 ];
 
