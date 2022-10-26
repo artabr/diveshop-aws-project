@@ -1,5 +1,4 @@
-import Home from './Home';
-import Cart from './Cart';
-import About from './About';
-
-export { Home, Cart, About };
+export * from './Home';
+export * from './Cart';
+export * from './About';
+export * from './Upload';

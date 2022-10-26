@@ -5,7 +5,7 @@ import { useGetProductsQuery } from '../features/products/productsApi';
 const { Content } = Layout;
 const { Paragraph } = Typography;
 
-function Home() {
+export function Home() {
   const { data = [] } = useGetProductsQuery();
 
   return (
@@ -34,5 +34,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

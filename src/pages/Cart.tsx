@@ -4,7 +4,7 @@ import { useAppSelector } from '../redux/hooks';
 
 const { Content } = Layout;
 
-function Cart() {
+export function Cart() {
   const columns = [
     {
       title: 'Id',
@@ -78,5 +78,3 @@ function Cart() {
     </div>
   );
 }
-
-export default Cart;
