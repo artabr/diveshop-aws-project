@@ -30,6 +30,11 @@ const items: MenuItem[] = [
     key: 'upload',
     route: '/upload',
     icon: <UploadOutlined />
+  },
+  {
+    label: 'Login',
+    key: 'login',
+    route: '/login'
   }
 ];
 

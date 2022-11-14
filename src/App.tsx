@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout, Divider } from 'antd';
 
 import Navigation from './components/Navigation';
-import { Home, Cart, About, UploadCSV } from './pages';
+import { Home, Cart, About, UploadCSV, Login } from './pages';
 
 const { Header, Content, Footer } = Layout;
 
@@ -20,6 +20,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/upload" element={<UploadCSV />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Content>
       <Footer style={{ textAlign: 'center' }}>&copy; 2022 Art Abramov</Footer>
