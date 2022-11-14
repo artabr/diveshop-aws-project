@@ -6,6 +6,8 @@ const { Content } = Layout;
 const { Paragraph } = Typography;
 const { Dragger } = Upload;
 
+const token = localStorage.getItem('token');
+
 const props: UploadProps = {
   name: 'file',
   accept: '.csv,text/csv',
@@ -16,7 +18,14 @@ const props: UploadProps = {
     console.log(file);
 
     try {
-      const response = await (await fetch('https://8xxzwg30o7.execute-api.eu-central-1.amazonaws.com/import')).json();
+      const response = await (
+        await fetch('https://8xxzwg30o7.execute-api.eu-central-1.amazonaws.com/import', {
+          method: 'GET',
+          headers: {
+            Authorization: `Basic ${token}`
+          }
+        })
+      ).json();
 
       const src = await new Promise<string>((resolve) => {
         const reader = new FileReader();
@@ -55,7 +64,7 @@ export function UploadCSV() {
           <Row align="middle" justify="space-between">
             <Col md={12} sm={24}>
               <Paragraph>Please select the CSV file with the products to upload.</Paragraph>
-              <Divider orientation="left">Upload File</Divider>
+              <Divider orientation="left">Upload CSV</Divider>
               {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <Dragger {...props}>
                 <p className="ant-upload-drag-icon">
